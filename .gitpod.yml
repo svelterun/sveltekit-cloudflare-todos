@@ -1,0 +1,29 @@
+image: nberlette/gitpod-enhanced
+
+ports:
+  - port: 3000-5000
+    onOpen: open-preview
+    visibility: public
+
+tasks:
+  - init: |
+      pnpm install --global miniflare@next wrangler@beta
+      pnpm install
+    command: pnpm run dev
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    addCheck: true
+    addBadge: true
+    addLabel: true
+
+vscode:
+  extensions:
+    - svelte.svelte-vscode
+    - eamodio.gitlens
+    - editorconfig.editorconfig
+    - christian-kohler.npm-intellisense
+    - christian-kohler.path-intellisense
